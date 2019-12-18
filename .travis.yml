@@ -3,7 +3,7 @@ services:
   - docker
 
 before_install:
-  - docker build -t smaraswa/react-test -f ./client/Dockerfile.dev ./
+  - docker build -t smaraswa/react-test -f ./client/Dockerfile.dev ./client
 
 script:
   - docker run smaraswa/react-test npm test -- -- coverage
@@ -13,6 +13,12 @@ after-success:
   - docker build -t smaraswa/multi-nginx ./nginx
   - docker build -t smaraswa/multi-worker ./worker
   - docker build -t smaraswa/multi-server ./server
+ 
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
+  - docker push smaraswa/multi-client
+  - docker push smaraswa/multi-nginx
+  - docker push smaraswa/multi-server
+  - docker push smaraswa/multi-worker
 
 
