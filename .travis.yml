@@ -25,10 +25,10 @@ after-success:
 deploy:
   edge: true
   provider: elastibeanstalk
-  region: us-east-2
+  region: us-east-1
   app: multi-docker
   env: MultiDocker-env
-  bucket_name: arn:aws:s3:::elasticbeanstalk-us-east-1-237526196927
+  bucket_name: elasticbeanstalk-us-east-1-237526196927
   bucket_path: docker-multi
   on: 
     branch: master
