@@ -5,7 +5,7 @@
       "name": "client",
       "image": "smaraswa/multi-client",
       "hostname": "client",
-      "essential": false
+      "essential": false,
       "memory": 128
     },
 
@@ -13,15 +13,15 @@
       "name": "server",
       "image": "smaraswa/multi-server",
       "hostname": "api",
-      "essential": false
-      "memory": 128"
+      "essential": false,
+      "memory": 128
     },
 
     {
       "name": "worker",
       "image": "smaraswa/multi-worker",
       "hostname": "worker",
-      "essential": false
+      "essential": false,
       "memory": 128
     },
 
@@ -37,7 +37,7 @@
         }
       ],
  
-      "links": ["client", "server"]
+      "links": ["client", "server"],
       "memory": 128
     },
 
